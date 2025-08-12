@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cqkgu2o3738wj"]
+
+[ext_resource type="FontFile" uid="uid://d3mv11bvonobd" path="res://m6x11plus.ttf" id="1_yd3fu"]
+
+[resource]
+default_font = ExtResource("1_yd3fu")
+default_font_size = 40

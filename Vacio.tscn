@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbiuxeuscj4rt"]
+
+[ext_resource type="Script" uid="uid://53opb8syfip3" path="res://vacio.gd" id="1_u4ucw"]
+[ext_resource type="Theme" uid="uid://cqkgu2o3738wj" path="res://Theme.tres" id="2_q17db"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_u4ucw")
+
+[node name="Pausegame" type="Label" parent="."]
+offset_left = 238.0
+offset_top = 231.0
+offset_right = 586.0
+offset_bottom = 404.0
+theme = ExtResource("2_q17db")
+theme_override_colors/font_color = Color(0.180392, 0.211765, 0.301961, 1)
+theme_override_font_sizes/font_size = 60
+text = "Loading"
+horizontal_alignment = 1
+vertical_alignment = 1

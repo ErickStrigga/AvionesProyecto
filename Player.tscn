@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3tsdfwcbf1j3"]
+
+[ext_resource type="Script" uid="uid://c0wdiushviufg" path="res://Player.gd" id="1_1utxf"]
+[ext_resource type="Texture2D" uid="uid://c7366kqiwfkly" path="res://kenney_pixel-shmup/Ships/ship_0009.png" id="2_kpjcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53tv5"]
+size = Vector2(48, 17)
+
+[sub_resource type="Animation" id="Animation_ty21o"]
+resource_name = "Hitting"
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_rp14n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_motvn"]
+resource_name = "Static"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y8eu7"]
+_data = {
+&"Hitting": SubResource("Animation_ty21o"),
+&"RESET": SubResource("Animation_rp14n"),
+&"Static": SubResource("Animation_motvn")
+}
+
+[node name="Area2D" type="Area2D" groups=["Player"]]
+script = ExtResource("1_1utxf")
+life = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_kpjcp")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_53tv5")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -46)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y8eu7")
+}
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
