@@ -20,34 +20,44 @@ script = ExtResource("1_2dftf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-offset_right = 107.0
-offset_bottom = 86.0
-theme_override_constants/margin_left = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
+[node name="Life" type="Label" parent="CanvasLayer"]
+offset_left = 20.0
+offset_right = 102.0
+offset_bottom = 41.0
+size_flags_horizontal = 0
 theme = ExtResource("3_bcbcq")
-
-[node name="Score" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0.179396, 0.211652, 0.302723, 1)
-theme_override_colors/font_shadow_color = Color(0.305882, 0.419608, 0.670588, 1)
-text = "Score : "
-
-[node name="Life" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.180392, 0.211765, 0.301961, 1)
 theme_override_colors/font_shadow_color = Color(0.307585, 0.418709, 0.670816, 1)
+theme_override_font_sizes/font_size = 45
 text = "Life : "
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_right = -29.0
+offset_bottom = 46.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+theme = ExtResource("3_bcbcq")
+theme_override_colors/font_color = Color(0.179396, 0.211652, 0.302723, 1)
+theme_override_colors/font_shadow_color = Color(0.305882, 0.419608, 0.670588, 1)
+theme_override_font_sizes/font_size = 45
+text = "Score : "
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_right = 90.0
+offset_bottom = 59.0
+grow_horizontal = 2
+theme = ExtResource("3_bcbcq")
+theme_override_colors/font_pressed_color = Color(0.180392, 0.211765, 0.301961, 1)
+theme_override_font_sizes/font_size = 50
+text = " Main Menu "
 
 [node name="Pausegame" type="Label" parent="."]
 z_index = 6
@@ -79,3 +89,5 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("8_bah7m")
+
+[connection signal="button_up" from="CanvasLayer/Button" to="." method="_on_button_button_up"]

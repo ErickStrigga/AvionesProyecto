@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxyvbwj2th7f2"]
+
+[ext_resource type="Script" uid="uid://c3nt2lxc4s7av" path="res://Scripts/tutorial.gd" id="1_7bloo"]
+[ext_resource type="Theme" uid="uid://cqkgu2o3738wj" path="res://Theme.tres" id="1_wduq8"]
+[ext_resource type="Texture2D" uid="uid://b002fltrbecqm" path="res://Assets/Life_item.png" id="2_uo1fs"]
+[ext_resource type="Texture2D" uid="uid://d208f4qt8vn8d" path="res://Assets/Power_item.png" id="3_7bloo"]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7bloo")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.5
+offset_top = -187.5
+offset_right = 354.5
+offset_bottom = 187.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wduq8")
+theme_override_colors/font_color = Color(0.180392, 0.211765, 0.301961, 1)
+theme_override_font_sizes/font_size = 50
+text = "Controls :
+WASD: Clasic 4-way grid movement
+Space : To unleash bruts
+Esc : To pause or quit the game
+Items:
+     : Gain 5 health or fully heal to 10
+     : Upgrade to unleash double-barrage 
+shots, doubling your dammage
+output for 5 seconds"
+
+[node name="Life" type="Sprite2D" parent="."]
+position = Vector2(80, 360)
+scale = Vector2(3, 3)
+texture = ExtResource("2_uo1fs")
+
+[node name="Power" type="Sprite2D" parent="."]
+position = Vector2(80, 415)
+scale = Vector2(3, 3)
+texture = ExtResource("3_7bloo")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_right = 90.0
+offset_bottom = 59.0
+grow_horizontal = 2
+theme = ExtResource("1_wduq8")
+theme_override_colors/font_pressed_color = Color(0.180392, 0.211765, 0.301961, 1)
+theme_override_font_sizes/font_size = 50
+text = " Main Menu "
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

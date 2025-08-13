@@ -1,7 +1,5 @@
-extends Label
-var timer = 0
-var onetime = 0
-func _process(delta: float) -> void:
-	timer += delta
-	if timer >= 6 and onetime == 0:
-		onetime = 1		queue_free()
+extends Control
+
+func _on_button_button_up() -> void:
+	var scene = load("res://Scenes/Menu.tscn")
+	get_tree().change_scene_to_packed(scene)
