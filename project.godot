@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="AvionesProyecto"
-run/main_scene="uid://y4f1tpaj83tj"
+run/main_scene="uid://bxjkouc0naihd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

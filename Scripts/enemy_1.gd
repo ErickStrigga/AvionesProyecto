@@ -1,7 +1,7 @@
 extends Area2D
-@export var life : int
-var timer : float
-var att : bool
+@export var life: int
+var timer: float
+var att: bool
 @onready var i = preload("res://Scenes/Items.tscn")
 @onready var b = preload("res://Scenes/Bullet.tscn")
 var textures = [preload("res://Assets/kenney_pixel-shmup/Ships/ship_0008.png"),
@@ -12,14 +12,14 @@ var textures = [preload("res://Assets/kenney_pixel-shmup/Ships/ship_0008.png"),
 func _ready() -> void:
 	timer = 0.7
 	att = false
-	$Sprite2D.texture = textures[randi_range(0,len(textures) - 1)]
+	$Sprite2D.texture = textures[randi_range(0, len(textures) - 1)]
 	$AnimationPlayer.play("Static")
 	life = 5
 
 func _process(delta: float) -> void:
 	timer += delta
 	position.y += 100 * delta
-	if(position.y >= 600):
+	if (position.y >= 600):
 		queue_free()
 	if att:
 		if timer >= 0.7:
@@ -27,8 +27,8 @@ func _process(delta: float) -> void:
 			attack()
 
 func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	if(area.is_in_group("Bullets")):
-		if(life <= 1):
+	if (area.is_in_group("Bullets")):
+		if (life <= 1):
 			get_parent().h += 10
 			if get_parent().rand == 0:
 				var item = i.instantiate()
@@ -36,8 +36,8 @@ func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, 
 				item.global_position = position
 			queue_free()
 		else:
-			life-=(1 * area.level);
-	if(area.is_in_group("Player")):
+			life -= (1 * area.level);
+	if (area.is_in_group("Player")):
 		get_parent().h += 10
 		queue_free()
 	if not area.is_in_group("Collisions") or not area.is_in_group("Items"):
@@ -53,10 +53,9 @@ func attack():
 func _on_attack_box_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	if area.is_in_group("Player"):
 		att = true
-		pass
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if(anim_name == "Hitting"):
+	if (anim_name == "Hitting"):
 		$AnimationPlayer.play("Static")
 
 func _on_attack_box_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:

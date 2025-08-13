@@ -12,6 +12,6 @@ func pausegame():
 	tree.paused = !tree.paused
 	visible = tree.paused
 	if tree.paused:
-		txt.text = "Game Paused"
+		txt.text = "Game paused, press ESC to retry"
 	else:
 		txt.text = ""

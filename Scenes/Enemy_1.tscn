@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwph5s5rrwkvf"]
+[gd_scene load_steps=9 format=3 uid="uid://bwph5s5rrwkvf"]
 
 [ext_resource type="Script" uid="uid://c7hv8wvqn07ru" path="res://Scripts/enemy_1.gd" id="1_7x51x"]
 [ext_resource type="Material" uid="uid://c3o3a4wmbbtxq" path="res://Enemy_1.tres" id="2_wf5g2"]
-[ext_resource type="Texture2D" path="res://kenney_pixel-shmup/Ships/ship_0008.png" id="3_wf5g2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0k0y"]
 size = Vector2(52, 32)
@@ -89,7 +88,6 @@ libraries = {
 texture_filter = 1
 material = ExtResource("2_wf5g2")
 scale = Vector2(2, 2)
-texture = ExtResource("3_wf5g2")
 flip_v = true
 hframes = 4
 

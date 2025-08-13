@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dk3bypprodbe6"]
+[gd_scene load_steps=3 format=3 uid="uid://dk3bypprodbe6"]
 
 [ext_resource type="Script" uid="uid://b7grkejo8gkll" path="res://Scripts/Items.gd" id="1_rgffq"]
-[ext_resource type="Texture2D" path="res://Life_item.png" id="2_dphic"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_654xe"]
 radius = 15.0
@@ -11,7 +10,6 @@ scale = Vector2(1.5, 1.5)
 script = ExtResource("1_rgffq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_dphic")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_654xe")
