@@ -13,6 +13,8 @@ func _ready() -> void:
 	$AnimationPlayer.play("Static")
 
 func _process(delta: float) -> void:
+	if life > 10:
+		life = 10
 	if t <= 0:
 		t = 0
 		level = 1

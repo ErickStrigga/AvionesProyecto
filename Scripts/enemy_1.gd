@@ -14,7 +14,7 @@ func _ready() -> void:
 	att = false
 	$Sprite2D.texture = textures[randi_range(0, len(textures) - 1)]
 	$AnimationPlayer.play("Static")
-	life = 5
+	life = 3
 
 func _process(delta: float) -> void:
 	timer += delta
