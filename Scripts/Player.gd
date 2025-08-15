@@ -23,13 +23,13 @@ func _process(delta: float) -> void:
 		life = 0
 		position = Vector2(-60,-60)
 	timer += delta
-	if Input.is_key_pressed(KEY_D) and position.x <= 770:
+	if (Input.is_key_pressed(KEY_D) or Input.is_action_pressed("ui_right")) and position.x <= 770:
 		position.x += vel * delta
-	if Input.is_key_pressed(KEY_A) and position.x >= 30:
+	if (Input.is_key_pressed(KEY_A) or Input.is_action_pressed("ui_left")) and position.x >= 30:
 		position.x -= vel * delta
-	if Input.is_key_pressed(KEY_W):
+	if (Input.is_key_pressed(KEY_W) or Input.is_action_pressed("ui_up")):
 		position.y -= (vel - 100) * delta
-	if Input.is_key_pressed(KEY_S) and position.y <= 555:
+	if (Input.is_key_pressed(KEY_S) or Input.is_action_pressed("ui_down")) and position.y <= 555:
 		position.y += (vel - 100) * delta
 	if Input.is_key_pressed(KEY_SPACE):
 		if(timer >= 0.4):
