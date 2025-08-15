@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	if (area.is_in_group("Bullets")):
 		if (life <= 1):
-			get_parent().h += 10
+			get_parent().get_node("Area2D").score += 10
 			if get_parent().rand == 0:
 				var item = i.instantiate()
 				get_parent().add_child(item)
@@ -38,7 +38,7 @@ func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, 
 		else:
 			life -= (1 * area.level);
 	if (area.is_in_group("Player")):
-		get_parent().h += 10
+		area.score += 10
 		queue_free()
 	if not area.is_in_group("Collisions") or not area.is_in_group("Items"):
 		$AnimationPlayer.play("Hitting")

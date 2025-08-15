@@ -54,6 +54,15 @@ theme_override_colors/font_pressed_color = Color(0.180392, 0.211765, 0.301961, 1
 theme_override_font_sizes/font_size = 120
 text = "Quit"
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 122.0
+offset_right = 694.0
+offset_bottom = 164.0
+theme = ExtResource("1_3kf3n")
+text = "Your max score is"
+
 [connection signal="button_down" from="VBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="VBoxContainer/MarginContainer/VBoxContainer/Button2" to="." method="_on_button_2_button_down"]
 [connection signal="button_up" from="VBoxContainer/MarginContainer/VBoxContainer/Button3" to="." method="_on_button_3_button_up"]

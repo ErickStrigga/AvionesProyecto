@@ -1,10 +1,9 @@
 extends Node2D
-@export var h = 0
 @export var rand : int 
 func _process(delta: float) -> void:
 	rand = randi_range(0,1)
 	$CanvasLayer/Life.text = "Life : " + str($Area2D.life)
-	$CanvasLayer/Score.text = "Score : " + str(h)
+	$CanvasLayer/Score.text = "Score : " + str($Area2D.score)
 
 
 func _on_button_button_up() -> void:

@@ -1,15 +1,13 @@
 extends Area2D
 @onready var b = preload("res://Scenes/Bullet.tscn")
-@export var life : int
-@export var score : int
-@export var level : int
-@export var t : float
-var timer : float
-var vel : int
+@export var life = 10
+@export var score = 0
+@export var level  = 1
+@export var t = 0
+var timer = 0.4
+var vel = 300
 
 func _ready() -> void:
-	t = 0
-	level = 1 ; score = 0 ; life = 10 ; timer = 0.4 ; vel = 300
 	$AnimationPlayer.play("Static")
 
 func _process(delta: float) -> void:
